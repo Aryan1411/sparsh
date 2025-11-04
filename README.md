@@ -1,17 +1,20 @@
 # Dr. Sparsh Gupta — Portfolio Website
 
 ## Overview
-This is a fast, responsive, single‑page portfolio website for Dr. Sparsh Gupta, MD (Medicine), Neurosurgeon with 5 years of clinical experience. It highlights professional overview, expertise, experience, testimonials, and contact options.
+A fast, responsive, single‑page portfolio website for Dr. Sparsh Gupta, MD (Medicine), Neurosurgeon. It highlights a professional overview, expertise, experience, testimonials, and contact options. This Round 2 update elevates the visual identity with a vibrant, dynamic color system while preserving speed, accessibility, and simplicity.
 
 Key features:
+- Vivid, multi‑stop animated gradient accents with 5 palette presets
+- Light/Dark theme toggle with preference saved in localStorage
 - Responsive layout for mobile, tablet, and desktop
-- Accessible navigation, semantic structure, and keyboard‑friendly controls
-- Light/Dark theme toggle with preference remembered
-- Lightweight assets (no external requests) for fast load
-- Testimonials slider, section reveal animations, and smooth scrolling
-- Contact form that composes an email locally (no backend required)
+- Accessible navigation, semantic structure, keyboard‑friendly controls
+- Testimonials slider (auto + manual)
+- Section reveal animations and smooth scrolling
+- Contact form that composes an email locally (mailto — no backend needed)
 - Downloadable vCard
+- Print‑optimized summary
 - SEO meta tags and JSON‑LD structured data (Physician)
+- No external requests; fully self‑contained and fast
 
 Tech stack: HTML5, CSS3, Vanilla JavaScript (no frameworks).
 
@@ -23,19 +26,21 @@ No build tools are required.
   - Python: python3 -m http.server 8080
   - Node: npx serve
 
-The page has no external dependencies and should load well within 15 seconds even on slow connections.
+This page has no external dependencies and should load well within 15 seconds even on slow connections.
 
 ## Usage
-- Customize contact details:
-  - In index.html, search for dr.sparsh@example.com and +1‑000‑000‑0000 and replace with real contact info.
+- Personalize contact details:
+  - In index.html, replace dr.sparsh@example.com and +1‑000‑000‑0000 with real contact info.
 - Navigation:
   - Header links scroll to sections. On mobile, use the menu button.
-- Theme:
-  - Click the moon/sun icon to toggle. Preference is saved in localStorage.
+- Theme and colors:
+  - Click the moon/sun icon to toggle light/dark theme.
+  - Click the palette icon 🎨 to cycle between 5 vibrant accent palettes. Preferences are saved.
 - Appointments:
-  - Click “Book Appointment,” “Call Clinic,” or use the contact form to compose an email with your details.
+  - Use the contact form to compose an email with your details (opens mail app).
+  - Or click “Call Clinic.”
 - vCard:
-  - “Save vCard” downloads a contact card you can import into your address book.
+  - Click “Save vCard” to download a contact card you can import.
 - Printing:
   - “Print Summary” produces a clean printout of key sections.
 
@@ -43,6 +48,20 @@ Content to personalize:
 - Hero summary, clinical interests, services, and timeline details
 - Add actual publications or a link to a CV file if available
 - Update testimonials with verified quotes and permissions
+
+## Improvements in Round 2
+- Introduced a bold, vibrant color system:
+  - Multi‑stop gradient accents (violet/cyan/amber by default) and four additional palettes
+  - Gradient text headings, luminous chips, and animated conic logo
+- Enhanced visual depth:
+  - Subtle animated saturation on palette switch, soft glows, and colorful section separators
+  - Glassy cards with gradient sheens and improved elevation/shadows
+- Better usability and polish:
+  - Stronger focus outlines with accent color
+  - Accessible contrast in both light and dark modes
+  - Sticky header with saturated blur and refined buttons
+- Kept performance first:
+  - Zero external assets, system fonts only, lightweight JS and CSS
 
 ## License (MIT)
 Copyright (c) 2025 Sparsh Gupta
