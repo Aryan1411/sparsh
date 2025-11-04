@@ -1,0 +1,636 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Dr. Sparsh Gupta • MD (Medicine), Neurosurgeon</title>
+  <meta name="description" content="Portfolio website for Dr. Sparsh Gupta — MD (Medicine), Neurosurgeon with 5 years of clinical experience. Expertise in neurosurgery and internal medicine care."/>
+  <meta property="og:title" content="Dr. Sparsh Gupta • MD (Medicine), Neurosurgeon" />
+  <meta property="og:description" content="Compassionate, evidence-based neurosurgical and internal medicine care. 5 years of experience." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="icon" href='data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="%230ea5e9"/><text x="50" y="60" text-anchor="middle" font-size="56" fill="white">⚕️</text></svg>' />
+
+  <style>
+    :root{
+      --bg: #0b1020;
+      --bg-elev: rgba(255,255,255,0.08);
+      --surface: #11162a;
+      --text: #eaf2ff;
+      --muted: #a8b3c7;
+      --brand: #0ea5e9;
+      --brand-2: #8b5cf6;
+      --ok: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+      --card: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 10px 30px rgba(2, 8, 23, 0.35);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 80% -10%, rgba(14,165,233,0.18), transparent 60%),
+                  radial-gradient(900px 500px at -10% 10%, rgba(139,92,246,0.16), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height:1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    a{color:inherit}
+    img{max-width:100%;display:block}
+    .container{width:min(1200px, 92%); margin-inline:auto}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:saturate(1.2) blur(8px);
+      background: linear-gradient(to bottom, rgba(11,16,32,0.8), rgba(11,16,32,0.45));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; text-decoration:none;
+    }
+    .brand-logo{
+      width:36px; height:36px; border-radius:10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      display:grid; place-items:center; color:white; font-size:20px; box-shadow: var(--shadow);
+    }
+    .brand-text{font-weight:700; letter-spacing:.2px}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    nav a{ color:var(--muted); text-decoration:none; font-weight:550; font-size:0.95rem}
+    nav a:hover, nav a:focus{ color:var(--text)}
+    .actions{display:flex; gap:10px; align-items:center}
+    .btn{
+      appearance:none; border:1px solid var(--border); background:var(--card); color:var(--text);
+      padding:10px 14px; border-radius:12px; font-weight:650; cursor:pointer;
+      transition: transform .08s ease, background .2s ease, border-color .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,0.22)}
+    .btn.brand{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-color: transparent; box-shadow: var(--shadow)}
+    .btn.ghost{ background: transparent }
+    .theme-toggle{ width:42px; height:40px; display:grid; place-items:center}
+
+    /* Mobile menu */
+    .menu-toggle{ display:none }
+    @media (max-width: 950px){
+      nav{ display:none; position:fixed; inset:64px 0 auto 0; background: #0b1020e6; border-bottom:1px solid var(--border)}
+      nav.open{ display:block }
+      nav ul{ flex-direction:column; padding:18px 24px}
+      .menu-toggle{ display:inline-flex }
+    }
+
+    /* Hero */
+    .hero{
+      position:relative; padding:70px 0 30px;
+    }
+    .hero-inner{
+      display:grid; grid-template-columns: 1.2fr 0.8fr; gap:40px; align-items:center;
+    }
+    @media (max-width: 950px){
+      .hero-inner{ grid-template-columns: 1fr; gap:28px}
+    }
+    .badge{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px; border-radius:999px; font-size:.9rem; font-weight:600;
+      border:1px solid var(--border); background:rgba(14,165,233,0.08); color:#9ddcff;
+    }
+    h1{ font-size: clamp(2.2rem, 4vw + 1rem, 3.6rem); line-height:1.1; margin:14px 0 }
+    .lead{ color: var(--muted); font-size: clamp(1rem, 0.7vw + 1rem, 1.12rem)}
+    .hero-cta{ display:flex; gap:12px; flex-wrap:wrap; margin-top:18px}
+    .stats{ display:grid; grid-template-columns: repeat(3,1fr); gap:14px; margin-top:20px}
+    @media (max-width: 650px){ .stats{ grid-template-columns:1fr 1fr} }
+    .stat{
+      padding:16px; border:1px solid var(--border); border-radius:16px; background:var(--card)
+    }
+    .stat strong{ font-size:1.4rem}
+    .art{
+      position:relative; aspect-ratio: 1/1; border-radius:20px; overflow:hidden;
+      border:1px solid var(--border); background: radial-gradient(60% 60% at 65% 35%, rgba(14,165,233,0.35), transparent 60%), radial-gradient(60% 60% at 35% 65%, rgba(139,92,246,0.35), transparent 60%), var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .art svg{ position:absolute; inset:0; width:100%; height:100%}
+    /* Sections */
+    section{ padding: 56px 0 }
+    .section-head{ display:flex; align-items:end; justify-content:space-between; gap:16px; margin-bottom:16px}
+    .section-head h2{ font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem); margin:0}
+    .muted{ color: var(--muted)}
+    .grid{
+      display:grid; gap:14px;
+    }
+    .grid.cols-3{ grid-template-columns: repeat(3, 1fr) }
+    .grid.cols-2{ grid-template-columns: repeat(2, 1fr) }
+    .grid.cards > article, .card{
+      border:1px solid var(--border); background: var(--card); border-radius:16px; padding:18px;
+      transition: transform .12s ease, border-color .2s ease, background .2s ease;
+    }
+    .grid.cards > article:hover, .card:hover{ transform: translateY(-3px); border-color: rgba(255,255,255,0.22) }
+    @media (max-width: 950px){ .grid.cols-3{ grid-template-columns:1fr 1fr} }
+    @media (max-width: 650px){ .grid.cols-3, .grid.cols-2{ grid-template-columns:1fr} }
+
+    /* Timeline */
+    .timeline{ position:relative; margin-top:6px}
+    .timeline::before{ content:""; position:absolute; left:18px; top:0; bottom:0; width:2px; background:linear-gradient(var(--brand), transparent)}
+    .timeline-item{ position:relative; padding-left:50px; margin:18px 0}
+    .timeline-item::before{
+      content:""; position:absolute; left:11px; top:6px; width:16px; height:16px; border-radius:50%;
+      background:linear-gradient(135deg, var(--brand), var(--brand-2)); box-shadow:0 0 0 3px rgba(14,165,233,0.15)
+    }
+    .kicker{ color: var(--muted); font-weight:700; letter-spacing:.2px; text-transform:uppercase; font-size:.8rem}
+
+    /* Testimonials */
+    .slider{ position:relative; overflow:hidden }
+    .slides{ display:flex; transition: transform .5s ease; gap:14px}
+    .testimonial{ min-width:100%; border:1px solid var(--border); background:var(--card); border-radius:16px; padding:18px }
+    .slider-controls{ display:flex; gap:8px; justify-content:center; margin-top:10px}
+    .dot{ width:10px; height:10px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; cursor:pointer }
+    .dot.active{ background:linear-gradient(135deg, var(--brand), var(--brand-2)) }
+
+    /* Contact */
+    form{ display:grid; grid-template-columns:1fr 1fr; gap:12px }
+    form .full{ grid-column: 1/-1 }
+    label{ display:block; font-weight:650; font-size:.95rem; margin-bottom:6px}
+    input, textarea, select{
+      width:100%; padding:12px 12px; border-radius:12px; border:1px solid var(--border); background: #0c1326; color: var(--text);
+      outline:none;
+    }
+    textarea{ min-height:120px; resize:vertical }
+    input:focus, textarea:focus, select:focus{ border-color: rgba(255,255,255,0.28) }
+    .note{ font-size:.9rem; color: var(--muted) }
+
+    /* Reveal animation */
+    .reveal{ opacity:0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease }
+    .reveal.in{ opacity:1; transform: none }
+
+    /* Footer */
+    footer{ border-top:1px solid var(--border); padding:22px 0; color: var(--muted) }
+    .foot{ display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap }
+    .foot a{ color: inherit }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation: none !important; transition: none !important }
+    }
+
+    /* Print */
+    @media print{
+      header, .hero-cta, .art, .slider-controls, .menu-toggle, .theme-toggle, .btn{ display:none !important }
+      body{ background:white; color:black }
+      .card, .stat, .timeline-item, .testimonial{ border:1px solid #888 !important; background:white !important; box-shadow:none !important }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#top">
+        <span class="brand-logo" aria-hidden="true">⚕️</span>
+        <span class="brand-text">Dr. Sparsh Gupta</span>
+      </a>
+      <button class="btn ghost menu-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Open menu">☰</button>
+      <nav id="mobile-nav">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#expertise">Expertise</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#research">Research</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="actions">
+        <button class="btn theme-toggle" id="themeToggle" aria-label="Toggle theme">🌙</button>
+        <a class="btn brand" href="#contact">Book Appointment</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="hero-inner">
+        <div>
+          <span class="badge">MD (Medicine) • Neurosurgeon</span>
+          <h1>Compassionate, evidence‑based care in neurosurgery and internal medicine</h1>
+          <p class="lead">Sparsh Gupta, MD (Medicine), Neurosurgeon with 5 years of clinical experience delivering patient‑centric care across brain, spine, neuro‑trauma, and complex medicine needs.</p>
+          <div class="hero-cta">
+            <a class="btn brand" href="tel:+10000000000">Call Clinic</a>
+            <a class="btn" href="mailto:dr.sparsh@example.com?subject=Appointment%20Request%20from%20Website">Email</a>
+            <a class="btn ghost" id="vcard" download="Dr_Sparsh_Gupta.vcf" href="#">Save vCard</a>
+          </div>
+          <div class="stats">
+            <div class="stat" aria-label="Years of experience">
+              <strong>5+ years</strong><br/><span class="muted">Experience</span>
+            </div>
+            <div class="stat" aria-label="Primary specialties">
+              <strong>Neurosurgery</strong><br/><span class="muted">Primary specialty</span>
+            </div>
+            <div class="stat" aria-label="General medicine">
+              <strong>Internal Medicine</strong><br/><span class="muted">Integrated care</span>
+            </div>
+          </div>
+        </div>
+        <div class="art" aria-hidden="true">
+          <!-- Minimal SVG brain/spine illustration -->
+          <svg viewBox="0 0 600 600" role="presentation">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#8b5cf6"/>
+              </linearGradient>
+              <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <g transform="translate(90,40)">
+              <path d="M200,40c110,0,180,80,180,160s-70,160-180,160S20,280,20,200,90,40,200,40Z" fill="none" stroke="url(#g1)" stroke-width="4" filter="url(#glow)"/>
+              <path d="M200,60c90,0,150,60,150,120s-60,120-150,120S50,240,50,180,110,60,200,60Z" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="2"/>
+              <!-- neuron-like lines -->
+              <path d="M200,90c0,160 0,160 0,320" stroke="url(#g1)" stroke-width="4" />
+              <path d="M160,130c50,40,80,40,120,0" stroke="rgba(255,255,255,0.3)" stroke-width="2" />
+              <path d="M140,200c30,30,110,30,140,0" stroke="rgba(255,255,255,0.25)" stroke-width="2" />
+              <path d="M150,260c40,20,100,20,130,0" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+              <!-- spine-like column -->
+              <g transform="translate(300,60)">
+                <rect x="0" y="0" width="10" height="280" rx="5" fill="rgba(255,255,255,0.22)"/>
+                <g fill="url(#g1)">
+                  <rect x="-16" y="10" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="40" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="70" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="100" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="130" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="160" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="190" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="220" width="42" height="10" rx="6"/>
+                  <rect x="-16" y="250" width="42" height="10" rx="6"/>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>About</h2>
+          <p class="muted">Patient-first philosophy</p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <p>Dr. Sparsh Gupta is a physician specializing in neurosurgery with a foundation in internal medicine (MD). Over the past 5 years, Dr. Gupta has focused on delivering comprehensive and personalized care, integrating evidence‑based decision making with clear communication and compassion.</p>
+            <p class="note">This portfolio highlights areas of practice, approach to care, and ways to connect. For medical emergencies, contact local emergency services immediately.</p>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">Clinical interests</h3>
+            <ul>
+              <li>Brain and spine surgery (including minimally invasive techniques)</li>
+              <li>Neuro‑trauma and critical care coordination</li>
+              <li>Stroke triage and management pathways</li>
+              <li>Neuro‑oncology, functional and peripheral nerve procedures</li>
+              <li>Pre‑/post‑operative internal medicine optimization</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Expertise & Services</h2>
+          <p class="muted">Safe, coordinated, multidisciplinary care</p>
+        </div>
+        <div class="grid cols-3 cards">
+          <article>
+            <h3>Neurosurgical Consultation</h3>
+            <p class="muted">Comprehensive assessment, imaging review, second opinions, and care planning.</p>
+          </article>
+          <article>
+            <h3>Brain & Spine Procedures</h3>
+            <p class="muted">Cranial, spinal, functional and peripheral nerve procedures with a focus on minimally invasive options when appropriate.</p>
+          </article>
+          <article>
+            <h3>Neuro‑Trauma Care</h3>
+            <p class="muted">Rapid evaluation and stabilization pathways in collaboration with emergency and ICU teams.</p>
+          </article>
+          <article>
+            <h3>Stroke Pathways</h3>
+            <p class="muted">Acute triage, imaging‑based decisions, and post‑stroke rehabilitation coordination.</p>
+          </article>
+          <article>
+            <h3>Integrated Medicine</h3>
+            <p class="muted">Internal medicine optimization for surgical readiness and post‑operative recovery.</p>
+          </article>
+          <article>
+            <h3>Tele‑Consultation</h3>
+            <p class="muted">Follow‑ups and select evaluations via secure virtual appointments.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Experience</h2>
+          <p class="muted">Timeline at a glance</p>
+        </div>
+        <div class="timeline card">
+          <div class="timeline-item">
+            <div class="kicker">2019 — Present</div>
+            <h3 style="margin:4px 0 6px">Clinical Practice</h3>
+            <p class="muted">Providing neurosurgical care with internal medicine integration; outpatient and inpatient services, multidisciplinary team coordination, and patient education.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="kicker">Training & Residency</div>
+            <h3 style="margin:4px 0 6px">Neurosurgery Training</h3>
+            <p class="muted">Specialized surgical training and rotations across neuro‑trauma, spine, cranial, and critical care.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="kicker">Foundation</div>
+            <h3 style="margin:4px 0 6px">MD (Medicine)</h3>
+            <p class="muted">Strong base in internal medicine for holistic peri‑operative care and complex comorbidity management.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Research & Teaching</h2>
+          <p class="muted">Quality and knowledge sharing</p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3 style="margin-top:0">Interests</h3>
+            <ul>
+              <li>Clinical outcomes and quality improvement in neuro‑trauma</li>
+              <li>Peri‑operative medicine pathways for neurosurgical patients</li>
+              <li>Patient communication and shared decision‑making</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3 style="margin-top:0">Publications & Talks</h3>
+            <p class="muted">List available on request. Please use the contact section to request a CV or publication list.</p>
+            <div>
+              <button class="btn" id="printResume">Print Summary</button>
+              <a class="btn ghost" href="mailto:dr.sparsh@example.com?subject=Request%20for%20CV&body=Hello%20Dr.%20Gupta%2C%0A%0AI%27d%20like%20to%20request%20your%20latest%20CV.%0A%0AThanks.">Request CV</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Testimonials</h2>
+          <p class="muted">What patients and colleagues say</p>
+        </div>
+        <div class="slider card" aria-roledescription="carousel" aria-label="Testimonials">
+          <div class="slides" id="slides">
+            <div class="testimonial" role="group" aria-label="Testimonial 1 of 3">
+              <p>Dr. Gupta explained every step clearly and made a complex decision feel manageable. I felt heard and supported throughout.</p>
+              <p class="muted">— Patient feedback</p>
+            </div>
+            <div class="testimonial" role="group" aria-label="Testimonial 2 of 3">
+              <p>Collaborative, calm in emergencies, and meticulous in the OR. A dependable colleague for neuro‑trauma care.</p>
+              <p class="muted">— Colleague feedback</p>
+            </div>
+            <div class="testimonial" role="group" aria-label="Testimonial 3 of 3">
+              <p>Thoughtful and thorough with pre‑ and post‑operative medicine optimization. Our patients benefit from this integrated approach.</p>
+              <p class="muted">— Multidisciplinary team feedback</p>
+            </div>
+          </div>
+        </div>
+        <div class="slider-controls" aria-label="Carousel pagination">
+          <button class="dot" data-slide="0" aria-label="Go to slide 1"></button>
+          <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+          <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container reveal">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="muted">For non‑emergency inquiries and appointments</p>
+        </div>
+        <div class="grid cols-2">
+          <article class="card">
+            <h3 style="margin-top:0">Appointment & Inquiries</h3>
+            <p class="muted">Use the form to draft an email or call the clinic directly. For emergencies, call local emergency services immediately.</p>
+            <p>
+              <strong>Phone:</strong> <a href="tel:+10000000000">+1 (000) 000‑0000</a><br/>
+              <strong>Email:</strong> <a href="mailto:dr.sparsh@example.com">dr.sparsh@example.com</a><br/>
+              <strong>Tele‑consults:</strong> Available by prior appointment
+            </p>
+            <p class="note">By submitting, you agree not to include sensitive personal health information. A member of the team will follow up with next steps.</p>
+          </article>
+          <article class="card">
+            <form id="contactForm" novalidate>
+              <div class="full">
+                <label for="name">Full name</label>
+                <input id="name" name="name" autocomplete="name" required placeholder="Your name"/>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com"/>
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="Optional"/>
+              </div>
+              <div>
+                <label for="reason">Reason</label>
+                <select id="reason" name="reason" required>
+                  <option value="">Select…</option>
+                  <option>New consultation</option>
+                  <option>Follow‑up</option>
+                  <option>Second opinion</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Please include brief details without sensitive information." required></textarea>
+              </div>
+              <div class="full" style="display:flex; gap:10px; align-items:center">
+                <button type="submit" class="btn brand">Compose Email</button>
+                <button type="reset" class="btn">Reset</button>
+                <span id="formStatus" class="note" role="status" aria-live="polite"></span>
+              </div>
+            </form>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <div>© <span id="year"></span> Dr. Sparsh Gupta. All rights reserved.</div>
+      <div>
+        <a href="#about">About</a> •
+        <a href="#contact">Contact</a> •
+        <a href="#" id="toTop">Back to top</a>
+      </div>
+    </div>
+    <div class="container" style="margin-top:10px">
+      <small class="muted">Disclaimer: This site does not provide medical advice and is not a substitute for professional diagnosis or treatment. In an emergency, call your local emergency number.</small>
+    </div>
+  </footer>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Physician",
+    "name": "Dr. Sparsh Gupta",
+    "medicalSpecialty": ["Neurosurgery", "InternalMedicine"],
+    "jobTitle": "MD (Medicine), Neurosurgeon",
+    "description": "Neurosurgeon with integrated internal medicine practice; 5 years of experience.",
+    "email": "mailto:dr.sparsh@example.com",
+    "telephone": "+10000000000",
+    "url": "",
+    "areaServed": "Telemedicine and local practice",
+    "sameAs": []
+  }
+  </script>
+
+  <script>
+    // Utility: smooth scroll for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        if(id.length > 1){
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({behavior:'smooth', block:'start'});
+          const nav = document.getElementById('mobile-nav');
+          if(nav.classList.contains('open')) toggleMenu(false);
+        }
+      });
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.querySelector('.menu-toggle');
+    const navEl = document.getElementById('mobile-nav');
+    function toggleMenu(force){
+      const open = typeof force === 'boolean' ? force : !navEl.classList.contains('open');
+      navEl.classList.toggle('open', open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.textContent = open ? '✕' : '☰';
+    }
+    menuBtn.addEventListener('click', ()=> toggleMenu());
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    function setTheme(mode){
+      if(mode === 'light'){
+        document.documentElement.style.setProperty('--bg', '#f8fafc');
+        document.documentElement.style.setProperty('--bg-elev', 'rgba(0,0,0,0.03)');
+        document.documentElement.style.setProperty('--surface', '#ffffff');
+        document.documentElement.style.setProperty('--text', '#0b1020');
+        document.documentElement.style.setProperty('--muted', '#475569');
+        document.documentElement.style.setProperty('--card', 'rgba(0,0,0,0.04)');
+        document.documentElement.style.setProperty('--border', 'rgba(2, 6, 23, 0.12)');
+        themeToggle.textContent = '☀️';
+      } else {
+        // reset to dark defaults by reloading styles from <style>? We'll set to initial
+        document.documentElement.style.setProperty('--bg', '#0b1020');
+        document.documentElement.style.setProperty('--surface', '#11162a');
+        document.documentElement.style.setProperty('--text', '#eaf2ff');
+        document.documentElement.style.setProperty('--muted', '#a8b3c7');
+        document.documentElement.style.setProperty('--card', 'rgba(255,255,255,0.06)');
+        document.documentElement.style.setProperty('--border', 'rgba(255,255,255,0.12)');
+        themeToggle.textContent = '🌙';
+      }
+      localStorage.setItem('theme', mode);
+    }
+    const preferLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+    const storedTheme = localStorage.getItem('theme') || (preferLight ? 'light' : 'dark');
+    setTheme(storedTheme);
+    themeToggle.addEventListener('click', ()=>{
+      const next = (localStorage.getItem('theme') || 'dark') === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+    });
+
+    // Intersection reveal
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add('in');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el=> io.observe(el));
+
+    // Testimonials slider
+    const slides = document.getElementById('slides');
+    const dots = Array.from(document.querySelectorAll('.dot'));
+    let idx = 0, timer;
+    function go(i){
+      idx = (i + dots.length) % dots.length;
+      slides.style.transform = `translateX(-${idx * 100}%)`;
+      dots.forEach((d,di)=> d.classList.toggle('active', di===idx));
+    }
+    dots.forEach(d=> d.addEventListener('click', ()=>{ go(parseInt(d.dataset.slide)); restart(); }));
+    function start(){ timer = setInterval(()=> go(idx+1), 5000); }
+    function stop(){ clearInterval(timer); }
+    function restart(){ stop(); start(); }
+    go(0); start();
+    slides.addEventListener('pointerenter', stop);
+    slides.addEventListener('pointerleave', start);
+
+    // vCard download
+    const vcard = document.getElementById('vcard');
+    const vcf = [
+      'BEGIN:VCARD',
+      'VERSION:3.0',
+      'FN:Dr. Sparsh Gupta',
+      'N:Gupta;Sparsh;;;',
+      'TITLE:MD (Medicine), Neurosurgeon',
+      'TEL;TYPE=WORK,VOICE:+1-000-000-0000',
+      'EMAIL;TYPE=PREF,INTERNET:dr.sparsh@example.com',
+      'NOTE:Portfolio contact card generated from website.',
+      'END:VCARD'
+    ].join('\\n');
+    vcard.href = 'data:text/vcard;charset=utf-8,' + encodeURIComponent(vcf);
+
+    // Contact form -> email compose
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('formStatus');
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if(!data.name || !data.email || !data.reason || !data.message){
+        status.textContent = 'Please complete all required fields.';
+        status.style.color = 'var(--warn)';
+        return;
+      }
+      const subj = encodeURIComponent(`[Website] ${data.reason} — ${data.name}`);
+      const body = encodeURIComponent(
+        `Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone||'-'}\nReason: ${data.reason}\n\nMessage:\n${data.message}\n\n— Sent from portfolio website`
+      );
+      const link = `mailto:dr.sparsh@example.com?subject=${subj}&body=${body}`;
+      window.location.href = link;
+      status.textContent = 'Opening your email app…';
+      status.style.color = 'var(--ok)';
+    });
+
+    // Footer year and back to top
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.getElementById('toTop').addEventListener('click', (e)=>{ e.preventDefault(); window.scrollTo({top:0, behavior:'smooth'}); });
+
+    // Print summary
+    document.getElementById('printResume').addEventListener('click', ()=> window.print());
+  </script>
+</body>
+</html>
